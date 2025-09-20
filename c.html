@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="con">
+        <h2>Guess The Number</h2>
+        <h4>I Have To Choose The Number 1 To 10000</h4>
+        <input type="number" id="guessInput" name="name" placeholder="Enter Your Guess"><br><br>
+        <button onclick="checkGuess()">Guess</button>
+        <button onclick="resetGame()">Reset</button>
+        <p id="message"></p>
+        <p id="attemps"></p>
+    </div>
+
+    <script>
+        let secretNumber;
+        let tries = 0;   
+
+        function startgame() {
+            secretNumber = Math.floor(Math.random() * 10000) + 1;
+            tries = 0;   
+            document.getElementById("message").innerText = "";
+            document.getElementById("attemps").innerText = "Attempts: 0";
+            document.getElementById("guessInput").value = "";
+        }
+
+        function checkGuess() {
+            let guess = parseInt(document.getElementById("guessInput").value);
+            tries++;
+
+            if (isNaN(guess)) {
+                document.getElementById("message").innerText = "Please enter a valid number.";
+            } else if (guess < secretNumber) {
+                document.getElementById("message").innerText = "Your Number is Small. Go Up!";
+            } else if (guess > secretNumber) {
+                document.getElementById("message").innerText = "Your Number is Big. Go Down!";
+            } else {
+                document.getElementById("message").innerText = "Congratulations! You guessed the number!";
+            }
+
+            document.getElementById("attemps").innerText = "Attempts: " + tries;  
+        }
+
+        function resetGame() {   
+            startgame();
+        }
+
+        startgame();
+    </script>
+</body>
+</html>

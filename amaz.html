@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="a.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: lime;
+        }
+        .con{
+            background-color: orange;
+            padding: 100px 200px;
+            border: none;
+            border-radius: 18px;
+        }
+        #output{
+            color: red;
+        }
+        h1{
+            color: white;
+        }
+        .con:hover{
+            transform: scale(1.01);
+            background-color: rgb(255, 169, 10);
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <a href="homei.html">Back</a>
+    <center>
+        <h1>Keyboard Tracking Webpage</h1>
+        <input onfocus="this.style.color= 'gray'" onblur="this.style.color= 'white'" style="padding: 5px 7px; text-align: center;" type="text" id="a" name="name" placeholder="(: Type Here :)">
+    <p id="output"></p>
+    </center>
+    </div>
+    <script>
+        const input = document.getElementById("a");
+        const output = document.getElementById("output");
+        input.addEventListener ("keydown" , function (event){
+            output.innerHTML = "Key Down:" + event.key;
+        });
+                input.addEventListener ("keyup" , function (event){
+            output.innerHTML = "Key Up:" + event.key;
+        });
+    </script>
+</body>
+</html>

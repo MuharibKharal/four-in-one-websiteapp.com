@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three in One Website</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(100deg, #d0ff00 40%, #ffd900 50%);
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 60px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    .container:hover {
+      transform: scale(1.0);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3),
+                  0 0 20px rgba(79, 172, 254, 0.7);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    a {
+      text-decoration: none;
+      background: #ffcc00;
+      color: #333;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    a:hover {
+      background: #ffdb4d;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 40px 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Three in One Website</h2>
+    <div class="links">
+      <a href="calculator.html">Calculator</a>
+      <a href="amaz.html">Keyboard Key Tracker</a>
+      <a href="mul.html">Multiplication Table</a>
+      <a href="c.html">Guess The Number Game</a>
+    </div>
+  </div>
+</body>
+</html>

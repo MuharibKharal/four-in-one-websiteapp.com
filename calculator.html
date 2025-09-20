@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="a.css">
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e7e5e5;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .calculator{
+            width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: #fffbfb;
+        }
+        .display{
+            background: #ffffff;
+            text-align: right;
+            color: black;
+            padding: 15px;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .buttons button{
+            padding: 20px;
+            font-size: 1.2rem;
+            color: #353333;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;    
+        }
+        .buttons button:hover{
+            transform: scale(1.05);
+        }
+        .zero{
+            grid-column: span 2;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="homei.html">Back</a>
+    <div class="calculator">
+        <h6 style="text-align: left;">📱 Calculator</h6>
+        <h2 style="text-align: left;">Standerd</h2>
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="clear" onclick="clearDisplay()">CE</button>
+            <button class="operator" onclick="addToDisplay('(')">(</button>
+            <button class="operator" onclick="addToDisplay(')')">)</button>
+
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button class="operator" onclick="addToDisplay('*')">×</button>
+
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button class="operator" onclick="addToDisplay('-')">−</button>
+
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button class="operator" onclick="addToDisplay('+')">+</button>
+
+            <button onclick="addToDisplay('0')">0</button>
+            <button class="operator" onclick="addToDisplay('.')">.</button>
+            <button class="operator" onclick="addToDisplay('%')">%</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+
+        function addToDisplay(value){
+            if (display.innerText === "0" || display.innerText === "Error" || display.innerText === "Wrong Entery") {
+                display.innerText = value;
+            } else {
+                display.innerText += value;
+            }
+        }
+
+        function clearDisplay(){
+            display.innerText = "0";
+        }
+
+        function calculate(){
+            try {
+                display.innerText = eval(display.innerText);
+            }
+            catch {
+                display.innerText = "Wrong Entery";
+            }
+        }
+document.addEventListener("keydown", function (event){
+    const key = event.key;
+    if (!isNaN(key) || "*-+().%".includes(key)){
+        addToDisplay(key);
+    }
+    else if (key === "Enter"){
+        calculate();
+    }
+    else if (key === "Backspace"){
+        if (display.innerText.length > 1){
+            display.innerText = display.innerText.slice(0, -1);
+        } else {
+            display.innerText = "0";
+        }
+    }
+    else if (key.toLowerCase() === "c"){  // Pressing "c" clears
+        clearDisplay();
+    }
+});
+
+    </script>
+</body>
+</html>
